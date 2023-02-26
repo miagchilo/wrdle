@@ -6,14 +6,9 @@ import { useState } from "react";
 
 import words from "./words";
 
-
 function getRandomWord() {
   return words[Math.floor(Math.random() * words.length)];
 }
-
-
-
-
 
 const keyboardLayout = {
   default: [
@@ -22,9 +17,6 @@ const keyboardLayout = {
     "Y X C V B N M {rnd} {enter}",
   ],
 };
-
-
-
 
 const keyboardDisplay = {
   "{rnd}": "Random",
@@ -37,7 +29,7 @@ function getDefaultButtonTheme() {
   return [
     {
       class: "correct",
-  
+
       buttons: "",
     },
     {
@@ -54,15 +46,11 @@ function getDefaultButtonTheme() {
 function App() {
   const [row, setRow] = useState(0);
 
-
   const [data, setData] = useState(["", "", "", "", "", ""]);
-
 
   const [wordToGuess, setWordToGuess] = useState(getRandomWord());
 
-
   const [buttonTheme, setButtonTheme] = useState(getDefaultButtonTheme());
-
 
   function getCurrentWord() {
     return data[row];
@@ -79,8 +67,6 @@ function App() {
         const presentLetters = [];
         const notFoundLetters = [];
 
-
-
         for (let i = 0; i < getCurrentWord().length; i++) {
           const char = getCurrentWord().charAt(i);
           if (wordToGuess.charAt(i) === char) {
@@ -92,11 +78,9 @@ function App() {
           }
         }
 
-
         buttonTheme[0].buttons += " " + correctLetters.join(" ");
         buttonTheme[1].buttons += " " + presentLetters.join(" ");
         buttonTheme[2].buttons += " " + notFoundLetters.join(" ");
-
 
         buttonTheme[0].buttons.split(" ").forEach((letter) => {
           buttonTheme[1].buttons = buttonTheme[1].buttons
@@ -107,7 +91,6 @@ function App() {
 
         if (row === 4) {
           setTimeout(() => {
-            // end of the game
             if (getCurrentWord() === wordToGuess) {
               alert("You win.");
             } else {
@@ -120,11 +103,8 @@ function App() {
           }, 1000);
         }
 
-
         setRow(row + 1);
       } else {
-  
-
       }
       return;
     }
@@ -195,6 +175,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
