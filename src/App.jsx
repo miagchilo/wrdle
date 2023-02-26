@@ -134,6 +134,7 @@ function App() {
     <div className="App">
       <div className="wrapper">
         <div className="field">
+          <h1>WRDL  </h1>
           <Row
             active={row === 0}
             word={data[0]}
@@ -170,6 +171,7 @@ function App() {
           >
             {JSON.stringify(buttonTheme)}
           </Keyboard>
+      
         </div>
       </div>
     </div>
